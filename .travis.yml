@@ -14,7 +14,9 @@ after_success:
     - docker build -t sinch5/multi-nginx ./nginx
     - docker build -t sinch5/multi-server ./server
     - docker build -t sinch5/multi-worker ./worker
+    #Loginto docker
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    #Take thos image and push them to gitgub
     - docker push sinch5/multi-client
     - docker push sinch5/multi-nginx
     - docker push sinch5/multi-server
